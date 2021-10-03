@@ -28,6 +28,7 @@ textarea {
 .time-block {
   text-align: center;
   border-radius: 15px;
+  padding: 5rem;
 }
 
 .row {
@@ -68,4 +69,19 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(0,0,0,.125);
+  width: 20%;
+}
+
+.list-group-item{
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  padding: 0px;
+  height: 100px;
 }
