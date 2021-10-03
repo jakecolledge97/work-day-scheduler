@@ -8,11 +8,16 @@ function myTimer(){
     pastTime.addClass('.list-group-item past')
 }*/
 
-$('button').each(function(index){
+$('button').each(function(){
     console.log($(this).attr('id'))
     var currentTime = moment()
-    var timeAttr = $(this).attr('id')
-    if(timeAttr < currentTime.format('H')){
+    var timeAttr = parseInt($(this).attr('id'))
+    if(timeAttr < parseInt(currentTime.format('H'))){
+        console.log(timeAttr + ' ' + currentTime.format('H'))
         $(this).addClass('.list-group-item past')
+    }else if(timeAttr === 11){
+        $(this).addClass('.list-group-item present')
+    }else{
+        $(this).addClass('.list-group-item future')
     }
 })
