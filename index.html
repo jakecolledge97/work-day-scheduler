@@ -29,7 +29,7 @@
       <!-- Timeblocks go here -->
       
       <ul class="time-block">
-        <li class="list-group-item" id="9"><div class="time">9AM</div>A disabled item <button class="saveBtn">+</button></li>
+        <li class="list-group-item" id="9"><div class="time">9AM</div>A disabled item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
         <li class="list-group-item" id="10"><div class="time">10AM</div>A second item <button class="saveBtn">+</button></li>
         <li class="list-group-item" id="11"><div class="time">11AM</div>A third item <button class="saveBtn">+</button></li>
         <li class="list-group-item" id="12"><div class="time">12AM</div>A fourth item <button class="saveBtn">+</button></li>
@@ -41,9 +41,29 @@
       </ul>
   
     </div>
+    <!--Modal here-->
+    <div class="modal fade" id="add-note-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
 </html>
