@@ -8,13 +8,12 @@ function myTimer(){
     pastTime.addClass('.list-group-item past')
 }*/
 
-$('button').each(function(){
+$('li').each(function(){
     console.log($(this).attr('id'))
     var currentTime = moment()
     var timeAttr = parseInt($(this).attr('id'))
     if(timeAttr < parseInt(currentTime.format('H'))){
         $(this).addClass('.list-group-item past')
-        $(this).unbind('mouseenter mouseleave')
     }else if(timeAttr === parseInt(currentTime.format('H'))){
         $(this).addClass('.list-group-item present')
     }else{
