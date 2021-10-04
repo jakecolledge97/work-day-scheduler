@@ -84,7 +84,9 @@ textarea {
   border-right: 1px solid rgb(0,0,0,.125);
   width: 20%;
 }
-
+.list-group-item + .list-group-item {
+  border-top-width: 1px;
+}
 .list-group-item{
   display: flex;
   flex-direction: row;
@@ -93,8 +95,8 @@ textarea {
   padding: 0px;
   height: 100px;
   width: 100%;
-  border-left: 0px;
-  border-right: 0px;
+  border: 0px;
+  border-top: 1px solid #b8b8b8;
 }
 .list-group-item:not(:first-child):not(:last-child) button{
   border-radius: 0px;
