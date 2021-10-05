@@ -6,7 +6,7 @@ function myTimer(){
 }
 //checks the time and highlights the respective time in the list
 $('li').each(function(){
-    console.log($(this).attr('id'))
+    //console.log($(this).attr('id'))
     var currentTime = moment()
     var timeAttr = parseInt($(this).attr('id'))
     if(timeAttr < parseInt(currentTime.format('H'))){
@@ -25,25 +25,30 @@ var noteDesc = $('#note-desc')
 var closeBtn = $('#close-note-btn')
 var addTimeId;
 
-timeBlockBtn.click(addTime)
+timeBlockBtn.click(addButtonTime)
 
 
-function addTime(event){
+function addButtonTime(event){
     addTimeId = $(this).parent().attr('id');
-    console.log(addTimeId)
     addNoteBtn.click(addNote)
     closeBtn.click(removeElements)
 }
 
 function addNote(){
     var idOfButton = addTimeId
-    console.log(idOfButton)
     console.log(noteTitle.val())
     if(noteTitle.val()){
-        console.log('this isnt empty')
+        addItemToList()
     }else{
         emptyBoxAnimation()
     }
+}
+function addItemToList(){
+    var newItem = $('<li>')
+    var elementSelected = $('#' + addTimeId)
+    newItem.addClass('list-group-item')  
+    newItem.text(noteTitle.val())
+    elementSelected.children('ul').append(newItem)
 }
 
 function emptyBoxAnimation(){
