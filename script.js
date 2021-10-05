@@ -4,10 +4,7 @@ function myTimer(){
     var currentTime = moment()
     $('#currentDay').text(currentTime.format('MMMM Do YYYY, h:mm:ss a'))
 }
-/*if(timePast.format('H') > 9){
-    pastTime.addClass('.list-group-item past')
-}*/
-
+//checks the time and highlights the respective time in the list
 $('li').each(function(){
     console.log($(this).attr('id'))
     var currentTime = moment()
@@ -20,3 +17,11 @@ $('li').each(function(){
         $(this).addClass('.list-group-item future')
     }
 })
+
+var addNoteBtn = $("#add-note-btn")
+
+addNoteBtn.click(addNote)
+
+function addNote(){
+    console.log("hello")
+}
