@@ -18,10 +18,40 @@ $('li').each(function(){
     }
 })
 
-var addNoteBtn = $("#add-note-btn")
+var timeBlockBtn = $('.time-block button')
+var addNoteBtn = $('#add-note-btn')
+var noteTitle = $('#note-title')
+var noteDesc = $('#note-desc')
+var closeBtn = $('#close-note-btn')
+var addTimeId;
 
-addNoteBtn.click(addNote)
+timeBlockBtn.click(addTime)
+
+
+function addTime(event){
+    addTimeId = $(this).parent().attr('id');
+    console.log(addTimeId)
+    addNoteBtn.click(addNote)
+    closeBtn.click(removeElements)
+}
 
 function addNote(){
-    console.log("hello")
+    var idOfButton = addTimeId
+    console.log(idOfButton)
+    console.log(noteTitle.val())
+    if(noteTitle.val()){
+        console.log('this isnt empty')
+    }else{
+        emptyBoxAnimation()
+    }
+}
+
+function emptyBoxAnimation(){
+    if(noteTitle.classList != 'emptyBox'){
+        noteTitle.addClass('emptyBox')
+    }
+}
+
+function removeElements(){
+    noteTitle.removeClass('emptyBox')
 }
