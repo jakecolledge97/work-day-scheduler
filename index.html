@@ -30,14 +30,14 @@
       
       <ul class="time-block">
         <li class="list-group-item" id="9"><div class="time">9AM</div>A disabled item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
-        <li class="list-group-item" id="10"><div class="time">10AM</div>A second item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="11"><div class="time">11AM</div>A third item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="12"><div class="time">12AM</div>A fourth item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="13"><div class="time">1PM</div>And a fifth one <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="14"><div class="time">2PM</div>A second item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="15"><div class="time">3PM</div>A third item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="16"><div class="time">4PM</div>A fourth item <button class="saveBtn">+</button></li>
-        <li class="list-group-item" id="17"><div class="time">5PM</div>And a fifth one <button class="saveBtn">+</button></li>
+        <li class="list-group-item" id="10"><div class="time">10AM</div>A second item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="11"><div class="time">11AM</div>A third item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="12"><div class="time">12AM</div>A fourth item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="13"><div class="time">1PM</div>And a fifth one <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="14"><div class="time">2PM</div>A second item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="15"><div class="time">3PM</div>A third item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="16"><div class="time">4PM</div>A fourth item <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
+        <li class="list-group-item" id="17"><div class="time">5PM</div>And a fifth one <button class="saveBtn" data-bs-toggle="modal" data-bs-target="#add-note-modal">+</button></li>
       </ul>
   
     </div>
@@ -46,11 +46,21 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Add note.</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <form>
+              <div class="mb-3">
+                <label for="note-title" class="form-label">Note Title:</label>
+                <input type="text" class="form-control" id="note-title" aria-describedby="title-help">
+                <div id="title-help" class="form-text">Try to keep your titles short and sweet.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
