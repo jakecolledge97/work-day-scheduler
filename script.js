@@ -18,12 +18,13 @@ $('li').each(function(){
     }
 })
 var localStoredNotes = []
-localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
+//localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
 var addTextBtn = $('.saveBtn')
 addTextBtn.click(addListItem)
 
 function getSavedNotes(){
-    localStoredNotes = [JSON.parse(localStorage.getItem(listItems))]
+    localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
+    console.log(localStoredNotes)
     var eachList = $('.time-block').children()
     var startingDiv = 9
     
@@ -36,22 +37,25 @@ function getSavedNotes(){
     }).appendTo('.schedule-list');
     
     for(i=0;i<eachList.length;i++){
-        for(y=0; y<localStoredNotes[i].length; y++){
+        var listItemsArr = localStoredNotes[i]
+        console.log(listItemsArr)
+        for(j=0; j<listItemsArr.length; j++){
             var currentListTime = $('#' + (startingDiv+i)).find('.added-items')
-            var localStoredNotesTime = [localStoredNotes[i]]
-            if(!localStoredNotesTime[y].length === 0){
-                $('<li>').appendTo(currentListTime);
+            var localStoredNotesTime = localStoredNotes[i]
+            if(localStoredNotesTime[j]){
+                /*$('<li>').appendTo(currentListTime);
                 $('<div>', {
                     class: "input-group-prepend",
                 }).appendTo(currentListTime.children('li'));
                 $('<div>', {
                     class: "input-group-text",
                 }).appendTo(currentListTime.children('.input-group-prepend'));
-                $('<p>').appendTo(currentListTime.children('.input-group-text'));
+                $(currentListTime).find('.input-group-prepend').append('<p></p>')
+                $(currentListTime).find('.input-group-prepend').append('<input type="checkbox">')
                 $('<input>', {
                     type: "checkox",
-                }).appendTo(currentListTime.children('.input-group-text'));
-                $(currentListTime.children('p')).text('test')
+                }).appendTo(currentListTime.children('.input-group-text'));*/
+                $(currentListTime).append('<li><div class="input-group-prepend"><div class="input-group-text"><p>hello</p><input type="checkbox"></div></div></li>')
             }
         }
     }
