@@ -58,10 +58,20 @@ textarea {
   background-color: #77dd77;
   color: white;
 }
-.form-group{
+.note-area{
   display: flex;
-  justify-content: center;
-  width: 50%;
+  width: 65%;
+  padding: 5px;
+}
+.form-group {
+  height: min-content;
+  width: 100%;
+}
+.form-control{
+  background-color: rgba(0,0,0,.125);
+  border: none;
+  font-size: .8rem;
+  padding: .125rem .75rem;
 }
 .saveBtn {
   display: flex;
@@ -103,7 +113,7 @@ textarea {
   justify-content: space-between;
   margin: 0px;
   padding: 0px;
-  height: 100px;
+  height: 150px;
   width: 100%;
   border: 0px;
   border-top: 1px solid #b8b8b8;
