@@ -17,4 +17,13 @@ $('li').each(function(){
         $(this).addClass('.list-group-item future')
     }
 })
+var addTextBtn = $('.saveBtn')
+addTextBtn.click(addListItem)
 
+function addListItem(event){
+    var buttonId = $(this).parent().attr('id')
+    var textInput = $('#' + buttonId).find('input').val()
+    if(textInput){
+        
+    }
+}
