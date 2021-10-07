@@ -20,6 +20,7 @@ $('li').each(function(){
 var localStoredNotes = []
 //localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
 var addTextBtn = $('.saveBtn')
+var eachList = $('.time-block').children()
 addTextBtn.click(addListItem)
 
 create2dArray()
@@ -36,7 +37,6 @@ function getSavedNotes(){
         localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
     }
     console.log(localStoredNotes)
-    var eachList = $('.time-block').children()
     var startingDiv = 9
     
     $('<div>', {
@@ -81,12 +81,40 @@ function addListItem(event){
     var checkBox = $('li').find('input:checkbox')
     if(!textInput.val() && !checkBox.is(':checked')){
         textInput.css('box-shadow', '0px 0px 5px 1px red')
-    }else if(checkBox.is(':checked')){
-        checkBox.closest('li').remove()
+    }else if(checkBox.is(':checked') && !textInput.val()){
+        $('input:checked').closest('li').remove()
+        saveListItems()
+        console.log(localStoredNotes)
     }else{
         $('#' + buttonId).find('.added-items').append('<li><div class="input-group-prepend"><div class="input-group-text"><p></p><input type="checkbox"></div></div></li>')
         $('#' + buttonId).find('.added-items li').last().find('p').text(textInput.val())
         textInput.css('box-shadow', 'none')
         textInput.val('')
+        $('input:checked').closest('li').remove()
+        saveListItems()
+        console.log(localStoredNotes)
+    }
+}
+
+function saveListItems(){
+    localStoredNotes = []
+    var listItems = []
+    for(i=0;i<eachList.length;i++){
+        var list = $('#' + (9+i)).find('ul')
+        if(list.childElementCount === 0){
+            localStoredNotes[i] = [""]
+            console.log(localStoredNotes)
+        }else{
+            listItems = []
+            for(j=0;j<list.children().length;j++){
+                listItems.push(list.children(j).find('p').text())
+                localStoredNotes
+            }
+            if(localStoredNotes[i] == null){
+                localStoredNotes[i] = listItems
+            }else{
+                localStoredNotes[i].push(listItems)
+            }
+        }
     }
 }
