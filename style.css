@@ -114,7 +114,8 @@ textarea {
   justify-content: space-between;
   margin: 0px;
   padding: 0px;
-  height: 150px;
+  min-height: 150px;
+  max-height: max-content;
   width: 100%;
   border: 0px;
   border-top: 1px solid #b8b8b8;
