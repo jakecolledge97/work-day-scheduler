@@ -107,13 +107,15 @@ function saveListItems(){
         }else{
             listItems = []
             for(j=0;j<list.children().length;j++){
-                listItems.push(list.children(j).find('p').text())
+                listItems.push(list.children().eq(j).find('p').text())
                 localStoredNotes
             }
             if(localStoredNotes[i] == null){
                 localStoredNotes[i] = listItems
+                console.log(localStoredNotes)
             }else{
                 localStoredNotes[i].push(listItems)
+                console.log(localStoredNotes)
             }
         }
     }
