@@ -77,9 +77,12 @@ function getSavedNotes(){
 
 function addListItem(event){
     var buttonId = $(this).parent().attr('id')
-    var textInput = $('#' + buttonId).find('input')
-    if(!textInput.val()){
+    var textInput = $('#' + buttonId).find('#list-input')
+    var checkBox = $('li').find('input:checkbox')
+    if(!textInput.val() && !checkBox.is(':checked')){
         textInput.css('box-shadow', '0px 0px 5px 1px red')
+    }else if(checkBox.is(':checked')){
+        checkBox.closest('li').remove()
     }else{
         $('#' + buttonId).find('.added-items').append('<li><div class="input-group-prepend"><div class="input-group-text"><p></p><input type="checkbox"></div></div></li>')
         $('#' + buttonId).find('.added-items li').last().find('p').text(textInput.val())
