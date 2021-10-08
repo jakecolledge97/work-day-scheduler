@@ -23,18 +23,21 @@ var addTextBtn = $('.saveBtn')
 var eachList = $('.time-block').children()
 addTextBtn.click(addListItem)
 
-create2dArray()
+
 getSavedNotes()
 
 function create2dArray(){
+    localStoredNotes = []
     for(i=0;i<9;i++){
         localStoredNotes[i] = ['']
     }
 }
 
 function getSavedNotes(){
+    
+    localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
     if(localStoredNotes === null){
-        localStoredNotes = JSON.parse(localStorage.getItem("listArray"))
+        create2dArray()
     }
     console.log(localStoredNotes)
     var startingDiv = 9
@@ -46,33 +49,33 @@ function getSavedNotes(){
     $('<ul>', {
         class: 'added-items',
     }).appendTo('.schedule-list');
-    if(localStoredNotes.length === 0){
-        return
-    }else{
-        for(i=0;i<eachList.length;i++){
-            var listItemsArr = localStoredNotes[i]
-            console.log(listItemsArr)
-            for(j=0; j<listItemsArr.length; j++){
-                var currentListTime = $('#' + (startingDiv+i)).find('.added-items')
-                var localStoredNotesTime = localStoredNotes[i]
-                if(localStoredNotesTime[j]){
-                    /*$('<li>').appendTo(currentListTime);
-                    $('<div>', {
-                        class: "input-group-prepend",
-                    }).appendTo(currentListTime.children('li'));
-                    $('<div>', {
-                        class: "input-group-text",
-                    }).appendTo(currentListTime.children('.input-group-prepend'));
-                    $(currentListTime).find('.input-group-prepend').append('<p></p>')
-                    $(currentListTime).find('.input-group-prepend').append('<input type="checkbox">')
-                    $('<input>', {
-                        type: "checkox",
-                    }).appendTo(currentListTime.children('.input-group-text'));*/
-                    $(currentListTime).append('<li><div class="input-group-prepend"><div class="input-group-text"><p>hello</p><input type="checkbox"></div></div></li>')
-                }
+    
+    
+    for(i=0;i<eachList.length;i++){
+        var listItemsArr = localStoredNotes[i]
+        console.log(listItemsArr)
+        for(j=0; j<listItemsArr.length; j++){
+            var currentListTime = $('#' + (startingDiv+i)).find('.added-items')
+            var localStoredNotesTime = localStoredNotes[i]
+            if(localStoredNotesTime[j]){
+                /*$('<li>').appendTo(currentListTime);
+                $('<div>', {
+                    class: "input-group-prepend",
+                }).appendTo(currentListTime.children('li'));
+                $('<div>', {
+                    class: "input-group-text",
+                }).appendTo(currentListTime.children('.input-group-prepend'));
+                $(currentListTime).find('.input-group-prepend').append('<p></p>')
+                $(currentListTime).find('.input-group-prepend').append('<input type="checkbox">')
+                $('<input>', {
+                    type: "checkox",
+                }).appendTo(currentListTime.children('.input-group-text'));*/
+                $(currentListTime).append('<li><div class="input-group-prepend"><div class="input-group-text"><p></p><input type="checkbox"></div></div></li>')
+                $(currentListTime).children().eq(j).find('p').text(localStoredNotes[i][j])
             }
         }
     }
+
 }
 
 function addListItem(event){
@@ -119,4 +122,5 @@ function saveListItems(){
             }
         }
     }
+    localStorage.setItem("listArray", JSON.stringify(localStoredNotes))
 }
